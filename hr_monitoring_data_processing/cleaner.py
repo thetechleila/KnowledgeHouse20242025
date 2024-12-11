@@ -1,4 +1,13 @@
 def filter_nondigits(data: list) -> list:
+    "strip(list)"
+    """
+    for x in list:
+    strip(\n)
+    -
+    
+    return [int]
+    
+    """
     """
     Filter all strings from list that are not integers
 

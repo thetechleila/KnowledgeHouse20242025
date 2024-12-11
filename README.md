@@ -1,4 +1,4 @@
-# verson-control-lab
+# version-control-lab
 
 ## Objective
 Introduce version control basics using Git and GitHub. By the end of this lab, you should:
