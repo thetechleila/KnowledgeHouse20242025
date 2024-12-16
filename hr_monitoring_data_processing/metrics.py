@@ -21,7 +21,8 @@ def window_max(data: list, n: int) -> list:
         maximums.append(max(alist))
         maximums = (len(data)//n)
     return maximums
-print(window_max(window_max, 6))
+
+#print(window_max(window_max, 6))
     
 
 
