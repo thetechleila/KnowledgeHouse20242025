@@ -1,4 +1,9 @@
 def filter_nondigits(data: list) -> list:
+    squeaky = []
+    for d in data:
+        if d.strip().isdigit() == True:
+            squeaky.append(int(d))
+    return squeaky
     """
     Filter all strings from list that are not integers
 
@@ -12,4 +17,8 @@ def filter_nondigits(data: list) -> list:
 
 
 def filter_outliers(data: list) -> list:
-    pass
+    sparkle = []
+    for d in data:
+        if data > 30 and data < 250:
+            sparkle.append(data)
+    return sparkle
