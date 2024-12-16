@@ -1,8 +1,6 @@
 from statistics import stdev 
 
-def window_max(data: list, n: int) -> list:
-    
-    """
+"""
     Calculate maximum value of every "n"-size window
 
     Args:
@@ -12,14 +10,27 @@ def window_max(data: list, n: int) -> list:
         list[int]: list of maximums from each window (size should be len(data)//6)
     
     maximums = []
-    """
- 
- """
-This will calculate the average of all values in the list by getting the sum of all values then dividing the sum 
+"""
+
+
+def window_max(data: list, n: int) -> list:
+    maximums = []
+    n = 6
+    for h in range(0, len(data), n):
+        alist = data[h: h + n]
+        maximums.append(max(alist))
+        maximums = (len(data)//n)
+    return maximums
+print(window_max(max_wins, 6))
+    
+
+
+"""
+#This will calculate the average of all values in the list by getting the sum of all values then dividing the sum 
 by the amount of elements in the list. The averages with then be appended to the list win_avg and win_avg is 
 returned
- """
- 
+"""
+
 def window_average(data: list, n: int) -> list:
     win_avg = []
     for b in range:
