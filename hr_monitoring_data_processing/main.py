@@ -20,7 +20,8 @@ perform comprehensive analysis
 
     Returns:
         list[int], list[int], list[int]: You will return the maximums, averages, and stdevs (in this order).
- 
+    open file and read into the 'data' list
+    return all 3 lists
 """
 
 from metrics import window_max, window_average, window_stddev
@@ -31,20 +32,22 @@ import matplotlib.pyplot as plt
 
 #Opens the .txt file then reads that info. The info is then appended to the "data" list after conversion
 #into a string
+data = []
+
 def run(filename: str) -> None:
-    data = []
-    file = open(filename, "r")
+    file = open(filename)
     for line in file:
         data.append(str(line))
     return data
- 
-    
 
-    # open file and read into the `data` list
-    ...
 
-    # return all 3 lists
-    ...
+#The 'filter_nondigits' function is called to filter out non numerical values from the 'data' list
+data = filter_nondigits(data)
+
+#The 'filter_outliers' function is called to filter outliers from the 'data' list
+data = filter_outliers(data)
+
+
 
 
 if __name__ == "__main__":
