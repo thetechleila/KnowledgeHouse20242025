@@ -15,11 +15,9 @@ from statistics import stdev
 
 def window_max(data: list, n: int) -> list:
     maximums = []
-    n = 6
     for h in range(0, len(data), n):
         alist = data[h: h + n]
         maximums.append(max(alist))
-        maximums = (len(data)//n)
     return maximums
 
 #print(window_max(window_max, 6))
@@ -34,7 +32,7 @@ returned
 
 def window_average(data: list, n: int) -> list:
     win_avg = []
-    for b in range:
+    for b in range (0, len(data), n):
         actual_averg = sum(window_average)/len(window_average)
         win_avg.append(actual_averg)
     return win_avg
@@ -42,7 +40,7 @@ def window_average(data: list, n: int) -> list:
 #Imported statistics module. This will find the standard deviation of the list then append to new list
 def window_stddev(data: list, n: int) -> list:
     devia = []
-    for data in window_stddev:
+    for data in window_stddev (0, len(data), n):
         statistics.pstdev(window_average)
         devia.append(window_average)
     return devia

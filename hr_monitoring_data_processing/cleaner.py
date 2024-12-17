@@ -15,7 +15,7 @@ def filter_nondigits(data: list) -> list:
     """
     pass
 
-
+#Filters out data that is less than 30 AND data that is less than 250. This info is appended to the list, sparkle
 def filter_outliers(data: list) -> list:
     sparkle = []
     for d in data:

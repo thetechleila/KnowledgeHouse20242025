@@ -1,16 +1,7 @@
 """
-The main Python mpdule that combines cleaner and metrics functions in order to
+The main Python module that combines cleaner and metrics functions in order to
 perform comprehensive analysis
-"""
 
-from metrics import window_max, window_average, window_stddev
-from cleaner import filter_nondigits, filter_outliers
-
-import matplotlib.pyplot as plt
-
-
-def run(filename: str) -> None:
-    """
     Process heart rate data from the specified file, clean it, calculate metrics, 
     and save visualizations.
 
@@ -29,8 +20,24 @@ def run(filename: str) -> None:
 
     Returns:
         list[int], list[int], list[int]: You will return the maximums, averages, and stdevs (in this order).
-    """  
+ 
+"""
+
+from metrics import window_max, window_average, window_stddev
+from cleaner import filter_nondigits, filter_outliers
+
+import matplotlib.pyplot as plt
+
+
+#Opens the .txt file then reads that info. The info is then appended to the "data" list.
+def run(filename: str) -> None:
     data = []
+    file = open(filename)
+    for line in file:
+        data.append(line)
+    return data
+ 
+    
 
     # open file and read into the `data` list
     ...
