@@ -47,15 +47,32 @@ data = filter_nondigits(data)
 #The 'filter_outliers' function is called to filter outliers from the 'data' list
 data = filter_outliers(data)
 
-#This should create images for the maximums of our heart rate data. Our window size is 6 (n=6). Maximums comes from 
-#importing window_max
-#plt.subplots() creates the figure & a grid of subplots
+"""
+The following should create images for the maximums of our heart rate data. Our window size is 6 (n=6). Maximums comes from 
+importing window_max
+fig, ax =plt.subplots() creates the figure & a grid of subplots to be customized by ax.plot(maximums)
+"""
 
 maximums = window_max(data, 6)
 fig, ax = plt.subplots()
 ax.plot(maximums)
+plt.savefig("images/maximums.png")
+
+#Creates a figure and plots using window average info. The image will be named and saved to averages.png
+averages = window_average(data, 6)
+fig, ax = plt.subplots()
+ax.plot(averages)
+plt.savefig("images/averages.png")
+
+#Creates a figure & plots using the standard deviations of our heart data. This image will be named and saved to stdevs.png
+stdevs = window_stddev(data, 6)
+fig, ax = plt.subplots()
+ax.plot(stdevs)
+plt.savefig("images/stdevs.png")
 
 
 
 if __name__ == "__main__":
     run("hr_monitoring_data_processing/data/data1.txt")
+
+print (maximums, averages, stdevs)

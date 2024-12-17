@@ -37,10 +37,22 @@ def window_average(data: list, n: int) -> list:
         win_avg.append(actual_averg)
     return win_avg
 
-#Imported statistics module. This will find the standard deviation of the list then append to new list
+"""
+This function calculates the standard deviation step by step. We find the average by dividing the sum of the window by the length of 
+the window. Then the variance is determined using the average and length. The standard dev will be the square root of the variance. 
+The standard deviation is then rounded to only have 2 decimal spaces and appended to the list 'devia'
+
+devia - short for deviation
+"""
+
 def window_stddev(data: list, n: int) -> list:
     devia = []
-    for data in window_stddev (0, len(data), n):
-        statistics.pstdev(window_stddev)
-        devia.append(window_stddev)
+    for w in range(0,len(data), n):
+        window = data[w:w+n]
+        if len(window) == 1:
+            continue
+        window_average = sum(window) / len(window)
+        variance = sum((w- window_average)** 2 for w in window) / (len(window) -1)
+        std_dev = variance ** 0.5
+        devia.append(round(std_dev,2))
     return devia
