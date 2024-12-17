@@ -1,5 +1,3 @@
-from statistics import stdev 
-
 """
     Calculate maximum value of every "n"-size window
 
