@@ -41,6 +41,6 @@ def window_average(data: list, n: int) -> list:
 def window_stddev(data: list, n: int) -> list:
     devia = []
     for data in window_stddev (0, len(data), n):
-        statistics.pstdev(window_average)
-        devia.append(window_average)
+        statistics.pstdev(window_stddev)
+        devia.append(window_stddev)
     return devia

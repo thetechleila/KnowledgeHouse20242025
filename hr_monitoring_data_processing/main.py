@@ -33,7 +33,7 @@ import matplotlib.pyplot as plt
 #into a string
 def run(filename: str) -> None:
     data = []
-    file = open(filename)
+    file = open(filename, "r")
     for line in file:
         data.append(str(line))
     return data
