@@ -47,6 +47,13 @@ data = filter_nondigits(data)
 #The 'filter_outliers' function is called to filter outliers from the 'data' list
 data = filter_outliers(data)
 
+#This should create images for the maximums of our heart rate data. Our window size is 6 (n=6). Maximums comes from 
+#importing window_max
+#plt.subplots() creates the figure & a grid of subplots
+
+maximums = window_max(data, 6)
+fig, ax = plt.subplots()
+ax.plot(maximums)
 
 
 
