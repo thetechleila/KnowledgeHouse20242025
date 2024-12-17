@@ -29,12 +29,13 @@ from cleaner import filter_nondigits, filter_outliers
 import matplotlib.pyplot as plt
 
 
-#Opens the .txt file then reads that info. The info is then appended to the "data" list.
+#Opens the .txt file then reads that info. The info is then appended to the "data" list after conversion
+#into a string
 def run(filename: str) -> None:
     data = []
     file = open(filename)
     for line in file:
-        data.append(line)
+        data.append(str(line))
     return data
  
     
@@ -47,4 +48,4 @@ def run(filename: str) -> None:
 
 
 if __name__ == "__main__":
-    run("data/data1.txt")
+    run("hr_monitoring_data_processing/data/data1.txt")

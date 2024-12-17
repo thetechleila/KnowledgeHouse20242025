@@ -44,5 +44,3 @@ def window_stddev(data: list, n: int) -> list:
         statistics.pstdev(window_average)
         devia.append(window_average)
     return devia
-        
-    
