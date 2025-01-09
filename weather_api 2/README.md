@@ -56,7 +56,7 @@ To form visualizations that answer these analytical questions, utilize your know
 
 ## Submission 
 
-The due date for this project is `01/17`.
+The due date for this project is `01/20`.
 
 To begin work on this project, you will create a repository in your GitHub and copy all these template files into your repo.
 
