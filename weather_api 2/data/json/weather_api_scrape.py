@@ -5,7 +5,7 @@ import json
 import pandas as pd
 
 #Get the page through get method then Scrape the open-meteo.com/en/docs site
-URL = "https://open-meteo.com/en/docs/historical-forecast-api#start_date=2022-01-01&end_date=2023-12-31&hourly=temperature_2m,relative_humidity_2m,precipitation,surface_pressure&timezone=America%2FNew_York"
+URL = "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=-21.72&longitude=-45.39&start_date=2022-01-01&end_date=2023-12-31&hourly=temperature_2m,relative_humidity_2m,precipitation,surface_pressure&timezone=America%2FNew_York"
 weather_params = {
     "latitude": -21.72,
     "longitude": -45.39,
@@ -16,9 +16,9 @@ weather_params = {
     
 }
 
-page = requests.get("https://open-meteo.com/en/docs/historical-forecast-api#start_date=2022-01-01&end_date=2023-12-31&hourly=temperature_2m,relative_humidity_2m,precipitation,surface_pressure&timezone=America%2FNew_York")
+page = requests.get("https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=-21.72&longitude=-45.39&start_date=2022-01-01&end_date=2023-12-31&hourly=temperature_2m,relative_humidity_2m,precipitation,surface_pressure&timezone=America%2FNew_York")
 
-#Save Open-Meteo Page Content as weather_scrape.html (just in case)
+#Save Open-Meteo Page Content as weather_scrape.html (just in case & for future reference)
 with open ("weather_scrape.html", "w") as html_file:
     html_file.write(page.text)
     
