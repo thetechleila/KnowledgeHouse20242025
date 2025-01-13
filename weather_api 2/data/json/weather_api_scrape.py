@@ -36,8 +36,6 @@ weather_params = {
     
 }
 
-
-
 #Setting up json.dumps to contain info
 weather_data_json = json.dumps(weather_params, indent=4)
 
@@ -45,7 +43,5 @@ weather_data_json = json.dumps(weather_params, indent=4)
 with open ("real_weather_api.json", "w") as outfile:
     outfile.write(weather_data_json)
     
-rest_of_weather = json.dumps("real_weather_api.json")
 
-with open ("real_weather_api.json", "a") as outfile:
-    outfile.append(rest_of_weather)
+
