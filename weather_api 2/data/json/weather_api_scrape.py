@@ -42,3 +42,5 @@ weather_data_json = json.dumps(weather_params, indent=4)
 #Write Weather Data to a json file
 with open ("real_weather_api.json", "w") as outfile:
     outfile.write(weather_data_json)
+    outfile.close()
+
