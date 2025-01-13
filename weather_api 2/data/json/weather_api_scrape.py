@@ -36,11 +36,16 @@ weather_params = {
     
 }
 
+
+
 #Setting up json.dumps to contain info
 weather_data_json = json.dumps(weather_params, indent=4)
 
-#Write Weather Data to a json file
+#Write Weather Data to a json file, outfile.write() automatically closes the file when the block is exited
 with open ("real_weather_api.json", "w") as outfile:
     outfile.write(weather_data_json)
-    outfile.close()
+    
+rest_of_weather = json.dumps("real_weather_api.json")
 
+with open ("real_weather_api.json", "a") as outfile:
+    outfile.append(rest_of_weather)
