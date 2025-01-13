@@ -18,13 +18,15 @@ weather_params = {
 
 page = requests.get("https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=-21.72&longitude=-45.39&start_date=2022-01-01&end_date=2023-12-31&hourly=temperature_2m,relative_humidity_2m,precipitation,surface_pressure&timezone=America%2FNew_York")
 
+#Parse Open-Meteo Page and store page in the "soup" variable
+soup = BeautifulSoup(page.content, "html.parser")
+
 #Save Open-Meteo Page Content as weather_scrape.html (just in case & for future reference)
 with open ("weather_scrape.html", "w") as html_file:
     html_file.write(page.text)
     
-#Parse Open-Meteo Page and store page in the "soup" variable
-soup = BeautifulSoup(page.content, "html.parser")
+#Remove HTML tags from the BeautifulSoup variable soup with the get_text() method then saving as text file
+clean_page = soup.get_text()
 
-text_only_webpage = soup.findAll(string=True)
-string = ''.join(text_only_webpage)
-print(text_only_webpage)
+with open("weather_json_api.txt", "w") as file:
+    file.write(clean_page)
