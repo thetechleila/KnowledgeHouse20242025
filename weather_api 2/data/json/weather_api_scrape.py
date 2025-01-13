@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-import xmltojson
-import re
+import html2text
 import json
 import pandas as pd
 
@@ -26,13 +25,6 @@ with open ("weather_scrape.html", "w") as html_file:
 #Parse Open-Meteo Page and store page in the "soup" variable
 soup = BeautifulSoup(page.content, "html.parser")
 
-
-#Get text into JSON format then use the json.load() method to convert that into a dictionary
-with open("weather_scrape.html", "r") as html_file:
-    html = html_file.read()
-    json_weather = xmltojson.parse(html)
-    
-with open ("data.json", "w") as file:
-    json.dump(json_weather, file)
-
-print(json_weather)
+text_only_webpage = soup.findAll(string=True)
+string = ''.join(text_only_webpage)
+print(text_only_webpage)
