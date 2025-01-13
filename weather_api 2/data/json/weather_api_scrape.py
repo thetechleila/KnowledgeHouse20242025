@@ -16,10 +16,10 @@ soup = BeautifulSoup(page.content, "html.parser")
 with open ("weather_scrape.html", "w") as html_file:
     html_file.write(page.text)
     
-#Remove HTML tag & metadata from the BeautifulSoup variable soup with the get_text() method then saving as text file
+#Remove HTML tag & metadata from the BeautifulSoup variable soup with the get_text() method then saving as json file
 clean_page = soup.get_text()
 
-with open("weather_json_api.txt", "w") as file:
+with open("weather_json_api.json", "w") as file:
     file.write(clean_page)
 
     
