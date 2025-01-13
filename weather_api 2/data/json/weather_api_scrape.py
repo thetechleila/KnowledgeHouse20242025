@@ -17,29 +17,10 @@ with open ("weather_scrape.html", "w") as html_file:
     html_file.write(page.text)
     
 #Remove HTML tag & metadata from the BeautifulSoup variable soup with the get_text() method then saving as json file
+
+#soup.get_text() removes the HTML tags & metadata, leaving only the text
 clean_page = soup.get_text()
 
+#saves cleaned data as weather_json_api.json. The "with" statement automatically closes file 
 with open("weather_json_api.json", "w") as file:
     file.write(clean_page)
-
-    
-#Convert text file into JSON structure below
-
-#Weather Data to be written to the JSON file
-weather_params = {
-    "latitude": -21.72,
-    "longitude": -45.39,
-    "hourly": ["temperature_2m", "relative_humidity_2m", "precipitation", "surface_pressure"],
-    "timezone": "America/New_York",
-    "start_date": "2022-01-01",
-    "end_date": "2023-12-31"
-    
-}
-
-#Setting up json.dumps to contain info
-weather_data_json = json.dumps(weather_params, indent=4)
-
-
-    
-
-
