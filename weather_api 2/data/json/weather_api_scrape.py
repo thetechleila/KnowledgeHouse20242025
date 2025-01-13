@@ -6,15 +6,6 @@ import pandas as pd
 
 #Get the page through get method then Scrape the open-meteo.com/en/docs site
 URL = "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=-21.72&longitude=-45.39&start_date=2022-01-01&end_date=2023-12-31&hourly=temperature_2m,relative_humidity_2m,precipitation,surface_pressure&timezone=America%2FNew_York"
-weather_params = {
-    "latitude": -21.72,
-    "longitude": -45.39,
-    "hourly": ["temperature_2m", "relative_humidity_2m", "precipitation", "surface_pressure"],
-    "timezone": "America/New_York",
-    "start_date": "2022-01-01",
-    "end_date": "2023-12-31"
-    
-}
 
 page = requests.get("https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=-21.72&longitude=-45.39&start_date=2022-01-01&end_date=2023-12-31&hourly=temperature_2m,relative_humidity_2m,precipitation,surface_pressure&timezone=America%2FNew_York")
 
@@ -25,8 +16,29 @@ soup = BeautifulSoup(page.content, "html.parser")
 with open ("weather_scrape.html", "w") as html_file:
     html_file.write(page.text)
     
-#Remove HTML tags from the BeautifulSoup variable soup with the get_text() method then saving as text file
+#Remove HTML tag & metadata from the BeautifulSoup variable soup with the get_text() method then saving as text file
 clean_page = soup.get_text()
 
 with open("weather_json_api.txt", "w") as file:
     file.write(clean_page)
+
+    
+#Convert text file into JSON structure below
+
+#Weather Data to be written to the JSON file
+weather_params = {
+    "latitude": -21.72,
+    "longitude": -45.39,
+    "hourly": ["temperature_2m", "relative_humidity_2m", "precipitation", "surface_pressure"],
+    "timezone": "America/New_York",
+    "start_date": "2022-01-01",
+    "end_date": "2023-12-31"
+    
+}
+
+#Setting up json.dumps to contain info
+weather_data_json = json.dumps(weather_params, indent=4)
+
+#Write Weather Data to a json file
+with open ("real_weather_api.json", "w") as outfile:
+    outfile.write(weather_data_json)
