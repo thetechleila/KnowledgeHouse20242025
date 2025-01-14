@@ -33,6 +33,6 @@ with open ("weather_json_api.json", "r") as file:
 parsed_csv_data = json.loads(csv_data)
 
 #Second - Create a DataFrame from the dictionary 'parsed_csv_data'
-df = pd.DataFrame.from_dict(parsed_csv_data, orient="index")
+df = pd.DataFrame.from_dict(parsed_csv_data, orient="columns")
 
 df.to_csv("weather_data.csv", index=False)
