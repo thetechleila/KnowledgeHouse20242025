@@ -27,4 +27,4 @@ json_data = json.dumps(json_data)
 # Convert JSON string to Pandas DataFrame
 df = pd.read_json(json_data, orient="columns")
 
-df.to_csv("weather_data.csv", index=False)
+df.to_csv("weather_data.csv", index=False) 
