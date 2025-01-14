@@ -19,6 +19,7 @@ json_data = {
         {"child_name": "Mary", "child_age": 5},
         {"child_name": "Tom", "child_age": 3},
         {"child_name": "Kate", "child_age": 2}
+    ]
 }
 
 # Convert dictionary to JSON string
