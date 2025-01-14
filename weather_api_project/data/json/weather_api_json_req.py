@@ -9,3 +9,22 @@ page = requests.get("https://historical-forecast-api.open-meteo.com/v1/forecast?
 
 #Convert page variable into json without metadata
 api_in_json = page.json()
+
+# Nested JSON data
+json_data = {
+    "name": ["John", "Jane", "Bob"],
+    "age": [25, 30, 35],
+    "city": ["New York", "San Francisco", "Chicago"],
+    "children": [
+        {"child_name": "Mary", "child_age": 5},
+        {"child_name": "Tom", "child_age": 3},
+        {"child_name": "Kate", "child_age": 2}
+}
+
+# Convert dictionary to JSON string
+json_data = json.dumps(json_data)
+
+# Convert JSON string to Pandas DataFrame
+df = pd.read_json(json_data, orient="columns")
+
+df.to_csv("weather_data.csv", index=False)
