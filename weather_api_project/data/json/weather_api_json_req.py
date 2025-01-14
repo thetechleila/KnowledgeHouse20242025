@@ -9,5 +9,3 @@ page = requests.get("https://historical-forecast-api.open-meteo.com/v1/forecast?
 
 #Convert page variable into json without metadata
 api_in_json = page.json()
-
-#Turn json object into dictionary 
