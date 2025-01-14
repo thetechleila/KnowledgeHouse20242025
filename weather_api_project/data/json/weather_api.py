@@ -24,3 +24,15 @@ clean_page = soup.get_text()
 #saves cleaned data as weather_json_api.json. The "with" statement automatically closes file 
 with open("weather_json_api.json", "w") as file:
     file.write(clean_page)
+    
+#Convert the json file 'weather_json_api.json' into a CSV file
+#First step is to convert the json file into a Python dictionary
+with open ("weather_json_api.json", "r") as file:
+    csv_data = file.read()
+
+parsed_csv_data = json.loads(csv_data)
+
+#Second - Create a DataFrame from the dictionary 'parsed_csv_data'
+df = pd.DataFrame.from_dict(parsed_csv_data, orient="index")
+
+df.to_csv("weather_data.csv", index=False)
