@@ -10,5 +10,3 @@ df.columns = df.columns.str.strip()
 #Convert date information to datetime
 df.set_index("time")
 df["time"] = pd.to_datetime(df["time"])
-
-
