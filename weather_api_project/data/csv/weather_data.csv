@@ -1,4 +1,4 @@
-date,temperature_2m,relative_humidity_2m,precipitation,surface_pressure
+time,temperature_2m,relative_humidity_2m,precipitation,surface_pressure
 2022-01-01T00:00,17.8,98,0.9,905.7
 2022-01-01T01:00,17.3,98,1.4,905.6
 2022-01-01T02:00,17.2,98,2.1,905.7
