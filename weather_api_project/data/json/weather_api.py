@@ -7,7 +7,7 @@ URL = "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=-21.7
 
 page = requests.get(URL)
 
-#Convert page variable into json without metadata
+#Convert page variable into json
 api_in_json = page.json()
 
 # Nested JSON data formatted as a dictionary 
