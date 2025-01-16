@@ -13,3 +13,9 @@ df.set_index("time", inplace=True)
 
 #Calculate monthly medians on temperature, relative humidity, precipitation, and surface pressure then save a new DataFrame
 monthly_medians = df.resample('M').median()
+
+#Calculate yearly medians on temperature, relative humidity, precipitation, and surface pressure then save a new DataFrame
+yearly_medians = df.resample('Y').median()
+
+#Calculate yearly medians on temperature, relative humidity, precipitation, and surface pressure then save a new DataFrame
+#This dataframe will include the following harvest data: million_60kgs, nonbear_mill_trees, bear_mill_trees, avg_unemp_perc for 2022-2023
