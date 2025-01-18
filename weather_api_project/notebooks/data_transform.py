@@ -23,7 +23,22 @@ yearly_medians = df.resample('Y').median()
 #Convert the "yearly_medians" DataFrame into a CSV file called "yearly_medians_mg.csv"
 #yearly_medians.to_csv("yearly_medians_mg.csv")
 
-#Convert the br_final.csv file into a DataFrame then drop the "avg_unemp_perc" column to remove null data
+#Convert the br_final.csv file into a DataFrame then drop the "avg_unemp_perc" column to remove null data there and dropna() to remove all other nulls
 df_br1 = pd.read_csv("weather_api_project/data/csv/br_final.csv")
+df_br1.dropna(how="all")
 df_br1.drop(columns="avg_unemp_perc", inplace=True)
 
+
+
+#Calculate yearly medians of millions_60kgs_bag, nonbear_mill_trees, bear_mill_trees from df_br1 for all years available for Minas Gerais
+df_mg = df_br1[df_br1["subdivision"]=="Minas Gerais"]
+yearly_minas_df =df_mg.groupby("year")[[
+    "million_60kgs_bag",
+    "nonbear_mill_trees",
+    "bear_mill_trees"
+]].median()
+
+#Convert yearly_minas_df in a CSV file called "yearly_harvest_medians.csv"
+yearly_minas_df.to_csv("yearly_harvest_medians.csv")
+
+#Concatenate the "yearly_medians" and "yearly_minas_df" DataFrames
