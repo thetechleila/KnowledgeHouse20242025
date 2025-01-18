@@ -15,17 +15,17 @@ df.set_index("time", inplace=True)
 monthly_medians = df.resample('M').median()
 
 #Convert the monthly medians DataFrame into a CSV file
-monthly_medians.to_csv("monthly_medians_mg.csv")
+#monthly_medians.to_csv("monthly_medians_mg.csv")
 
 #Calculate yearly medians on temperature, relative humidity, precipitation, and surface pressure then save a new DataFrame
 yearly_medians = df.resample('Y').median()
 
 #Convert the "yearly_medians" DataFrame into a CSV file
-yearly_medians.to_csv("yearly_medians_mg.csv")
+#yearly_medians.to_csv("yearly_medians_mg.csv")
 
-#Convert the br_final.csv file into a DataFrame
-#df_br = pd.read_csv("weather_api_project/data/csv/br_final.csv")
-#df_br.set_index("year")
+#Convert the br_final.csv file into a DataFrame and drop null values
+df_br1 = pd.read_csv("weather_api_project/data/csv/br_final.csv")
+df_br1.dropna(inplace=True)
 
 
 #Calculate yearly medians on temperature, relative humidity, precipitation, and surface pressure then save a new DataFrame from br_final.csv
