@@ -25,13 +25,12 @@ yearly_medians = df.resample('Y').median()
 #yearly_medians.to_csv("yearly_medians_mg.csv")
 
 #Convert the br_final.csv file into a DataFrame then drop the "avg_unemp_perc" column to remove null data there and dropna() to remove all other nulls
-#Convert to datetime
+#Remove row "2018" due to NaN values in 2/3 columns
 df_br1 = pd.read_csv("weather_api_project/data/csv/br_final.csv")
 df_br1.set_index("year")
 df_br1.dropna(how="all")
 df_br1.drop(columns="avg_unemp_perc", inplace=True)
-
-
+df_br1.dropna(inplace=True)
 
 #Calculate yearly medians of millions_60kgs_bag, nonbear_mill_trees, bear_mill_trees from df_br1 for all years available for Minas Gerais
 df_mg = df_br1[df_br1["subdivision"]=="Minas Gerais"]
@@ -41,11 +40,7 @@ minas_df =df_mg.groupby("year")[[
     "bear_mill_trees"
 ]].median()
 
-
-#Drop the year row 2018 due to NaN values in the nonbear_mill_trees and bear_mill_trees rows for that year
-
-
 #Convert yearly_minas_df in a CSV file called "yearly_harvest_medians.csv"
-#minas_df.to_csv("yearly_harvest_medians.csv")
+minas_df.to_csv("yearly_harvest_medians.csv")
 
 #Merge the "yearly_medians" and "yearly_minas_df" DataFrames
